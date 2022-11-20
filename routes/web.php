@@ -25,3 +25,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/chart',[App\Http\Controllers\ChartController::class,'indexx'])->name('Chart.indexx')->middleware('auth');
+Route::get('/chart1',[App\Http\Controllers\ChartController::class,'indexx1'])->name('Chart.indexx1')->middleware('auth');
+Route::get('/chart2',[App\Http\Controllers\ChartController::class,'indexx2'])->name('Chart.indexx2')->middleware('auth');
+

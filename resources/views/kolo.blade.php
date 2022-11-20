@@ -24,5 +24,11 @@
         @empty
             <h2>There are no Information</h2>
     @endforelse
-
+    <div>{{$results->links()}}</div>
+    <style>
+        .w-5{
+            display: none;
+            alignment: center;
+        }
+    </style>
 @endsection

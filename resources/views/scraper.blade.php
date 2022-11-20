@@ -29,11 +29,14 @@
     </style>
 </head>
 <body>
-<a class="btn btn-primary" href="{{route('scraper.store')}}">Fetch Data</a>
-<a class="btn btn-primary" href="{{route('scraper.information')}}">Information</a>
-<a class="btn btn-primary" href="{{route('scraper.max_cases')}}">Maximum Coronavirus Cases</a>
-<a class="btn btn-primary" href="{{route('scraper.max_death')}}">Maximum Death</a>
-<a class="btn btn-primary" href="{{route('scraper.max_recovered')}}">Maximum Recovered</a>
+    <a class="btn btn-primary" href="{{route('scraper.store')}}">Fetch Data</a>
+    <a class="btn btn-primary" href="{{route('scraper.information')}}">Information</a>
+    <a class="btn btn-primary" href="{{route('scraper.max_cases')}}">Maximum Coronavirus Cases</a>
+    <a class="btn btn-primary" href="{{route('scraper.max_death')}}">Maximum Death</a>
+    <a class="btn btn-primary" href="{{route('scraper.max_recovered')}}">Maximum Recovered</a>
+    <a class="btn btn-primary" href="{{route('Chart.indexx')}}">Coronavirus Cases Chart</a>
+    <a class="btn btn-primary" href="{{route('Chart.indexx1')}}">Deaths Chart</a>
+    <a class="btn btn-primary" href="{{route('Chart.indexx2')}}">Recovered Chart</a>
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3 mt-5 wrapper">

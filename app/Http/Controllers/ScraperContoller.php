@@ -7,6 +7,7 @@ use App\Models\Scraper;
 use Goutte\Client;
 use http\Client\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use function MongoDB\Driver\Monitoring\removeSubscriber;
 use function PHPUnit\Framework\throwException;
 
@@ -17,12 +18,13 @@ class ScraperContoller extends Controller
     public function show()
     {
         [$status,$data] = $this->fetchData();
+        $cases=DB::select("select * from scrapers where id = 1");
         if(!$status)
         {
             $data = [];
         }
         //$this->saveToDatabase($data);
-        return view('scraper', compact('data'));
+        return view('scraper', compact('data','cases'));
     }
 
     public final function fetchData(): array
@@ -81,7 +83,7 @@ class ScraperContoller extends Controller
 
     public function information()
     {
-        $results = Scraper::orderBy('created_at','desc')->paginate(100);
+        $results = Scraper::orderBy('created_at','desc')->paginate(10);
         return view('kolo',compact('results'));
         //$lastRecordDate = Scraper::all('Deaths')->max('Deaths');
         //dd($lastRecordDate);
