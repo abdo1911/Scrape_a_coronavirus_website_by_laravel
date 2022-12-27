@@ -2,7 +2,6 @@
 
 @section('content')
 
-    {{$i=0}}
     @forelse($results as $result)
 
         <div class="card text-center">
@@ -15,7 +14,7 @@
                 <h5 class="card-text">Recovered : {{$result->Recovered}}</h5>
             </div>
             <div class="card-footer text-muted">
-                Day {{$i+=1}}
+                 {{$result->created_at}}
             </div>
         </div>
         <br>

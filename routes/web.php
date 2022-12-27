@@ -29,3 +29,6 @@ Route::get('/chart',[App\Http\Controllers\ChartController::class,'indexx'])->nam
 Route::get('/chart1',[App\Http\Controllers\ChartController::class,'indexx1'])->name('Chart.indexx1')->middleware('auth');
 Route::get('/chart2',[App\Http\Controllers\ChartController::class,'indexx2'])->name('Chart.indexx2')->middleware('auth');
 
+Route::get('comment',[App\Http\Controllers\CommintController::class,'store'])->name('comment')->middleware('auth');
+Route::get('handleSubmit',[App\Http\Controllers\CommintController::class,'handleSubmit'])->name('handleSubmit');
+Route::get('showComment',[App\Http\Controllers\CommintController::class,'showComment'])->name('showComment')->middleware('auth');

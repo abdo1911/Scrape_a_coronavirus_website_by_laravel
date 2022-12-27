@@ -17,14 +17,25 @@ class ScraperContoller extends Controller
 
     public function show()
     {
+        $result=DB::select("select * from scrapers order by id desc limit 2") ;
+        if(count($result)<2)
+        {
+            //TODO Wala333333333 Wala3333
+        }
+        [$first,$second]=$result;
+        $a =  self::formatNumber($first->Coronavirus_Cases)  - self::formatNumber($second->Coronavirus_Cases) ;
+        $b =  self::formatNumber($first->Deaths)  - self::formatNumber($second->Deaths) ;
+        $c =  self::formatNumber($first->Recovered)  - self::formatNumber($second->Recovered) ;
+
+        $arr = [$a,$b,$c];
+
         [$status,$data] = $this->fetchData();
-        $cases=DB::select("select * from scrapers where id = 1");
         if(!$status)
         {
             $data = [];
         }
         //$this->saveToDatabase($data);
-        return view('scraper', compact('data','cases'));
+        return view('scraper', compact('data','arr'));
     }
 
     public final function fetchData(): array
@@ -67,7 +78,10 @@ class ScraperContoller extends Controller
         [$cases, $death, $recovered] = array_values($data);
         return Scraper::create(['Coronavirus_Cases' => $cases, 'Deaths' => $death, 'Recovered' => $recovered])->save();
     }
-
+    final static function formatNumber(string $number):int
+    {
+        return intval(str_replace(',', '', $number));
+    }
     public function store()
     {
         try {
@@ -83,7 +97,7 @@ class ScraperContoller extends Controller
 
     public function information()
     {
-        $results = Scraper::orderBy('created_at','desc')->paginate(10);
+        $results = Scraper::orderBy('created_at','desc')->paginate(7);
         return view('kolo',compact('results'));
         //$lastRecordDate = Scraper::all('Deaths')->max('Deaths');
         //dd($lastRecordDate);

@@ -4,9 +4,23 @@
 <head>
     <meta charset="utf-8">
     <title>Laravel 8 Highcharts Demo</title>
+    <style>
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+    </style>
 </head>
 
 <body>
+<video autoplay muted loop id="myVideo">
+    <source src="back2.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
+
 <center><h1 style="color:red;">Highcharts in Laravel 8 Deaths</h1></center>
 
 <div id="container"></div>
